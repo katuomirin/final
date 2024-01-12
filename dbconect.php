@@ -9,7 +9,7 @@ $connect = 'mysql:host='. SERVER . ';dbname='. DBNAME . ';charset=utf8';
 try {
     $pdo = new PDO($connect, USER, PASS);
     $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-    echo "Connected successfully";
+  
 } catch (PDOException $e) {
     echo "Connection failed: " . $e->getMessage();
     die(); // プログラムを停止
