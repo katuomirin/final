@@ -1,35 +1,3 @@
-<?php
-require 'dbconect.php';
-
-if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    // フォームが送信されたか確認
-
-    // フォームから値を取得
-    $companyName = $_POST['name'];
-    $companyWebsite = $_POST['home'];
-    $status = $_POST['situ'];
-
-    // 新しいレコードをデータベースに挿入
-    $tableName = 'Job hunting';
-    $query = "INSERT INTO `$tableName` (`企業名`, `企業ホームページ`, `状況`) VALUES (:companyName, :companyWebsite, :status)";
-    $stmt = $pdo->prepare($query);
-
-    $stmt->bindParam(':companyName', $companyName);
-    $stmt->bindParam(':companyWebsite', $companyWebsite);
-    $stmt->bindParam(':status', $status);
-
-    if ($stmt->execute()) {
-        echo "Record added successfully!";
-    } else {
-        echo "Error: Unable to add record.";
-        // 必要に応じてエラーに関する詳細情報を出力できます
-        // echo "Error: " . $stmt->errorInfo()[2];
-    }
-}
-
-$pdo = null; 
-?>
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -38,8 +6,6 @@ $pdo = null;
     <title>就活状況整理</title>
 </head>
 <body>
-
-<h2>就活状況整理</h2>
 
 <?php
 require 'dbconect.php';
@@ -56,18 +22,31 @@ try {
 
             echo "<h2>就活状況整理</h2>";
             echo "<table border='1'>";
-            echo "<tr><th>ID</th><th>企業名</th><th>企業ホームページ</th><th>状況</th></tr>"; 
+            echo "<tr><th>ID</th><th>企業名</th><th>企業ホームページ</th><th>状況</th><th>操作</th></tr>"; 
             foreach ($result as $row) {
                 echo "<tr>";
-                foreach ($row as $value) {
+                foreach ($row as $key => $value) {
                     echo "<td>$value</td>";
                 }
+
+                // 更新ボタン
+                echo "<td><form action='update-input.php' method='post'>";
+                echo "<input type='hidden' name='id' value='{$row['id']}'>";
+                echo "<input type='submit' value='更新'>";
+                echo "</form></td>";
+
+                // 削除ボタン
+                echo "<td><form action='delete-process.php' method='post'>";
+                echo "<input type='hidden' name='id' value='{$row['id']}'>";
+                echo "<input type='submit' value='削除'>";
+                echo "</form></td>";
+
                 echo "</tr>";
             }
 
             echo "</table>";
 
-            // Add button to trigger the "Add" action
+            // 追加ボタン
             echo "<form action='add-input.php' method='post'>";
             echo "<input type='submit' value='追加'>";
             echo "</form>";
@@ -84,8 +63,6 @@ try {
 $pdo = null;
 ?>
 
-
-
-
 </body>
 </html>
+
