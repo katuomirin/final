@@ -84,6 +84,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $companyName = $data['企業名'] ?? '';
     $companyWebsite = $data['企業ホームページ'] ?? '';
     $status = $data['状況'] ?? '';
+    $memo = $data['メモ'] ?? '';
 }
 ?>
 
@@ -98,6 +99,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     <label for='situ'>状況:</label>
     <textarea name='situ' rows='3' required><?php echo $status; ?></textarea>
+    <br>
+
+    <label for='memo'>メモ:</label>
+    <textarea name='memo' rows='3' required><?php echo $memo; ?></textarea>
     <br>
 
     <input type='hidden' name='id' value='<?php echo $id; ?>'>

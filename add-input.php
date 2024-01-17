@@ -78,6 +78,10 @@
     <input type='text' name='situ' required>
     <br>
 
+    <label for='memo'>メモ:</label>
+    <input type='text' name='memo' required>
+    <br>
+
     <input type='submit' value='データを追加'>
 </form>
 

@@ -89,14 +89,16 @@
         $companyName = $_POST['name'];
         $companyWebsite = $_POST['home'];
         $status = $_POST['situ'];
+        $memo = $_POST['memo'];
 
         $tableName = 'Job hunting';
-        $query = "UPDATE `$tableName` SET `name` = :companyName, `home` = :companyWebsite, `situ` = :status WHERE `ID` = :id";
+        $query = "UPDATE `$tableName` SET `name` = :companyName, `home` = :companyWebsite, `situ` = :status , `memo` = :memo WHERE `ID` = :id";
         $stmt = $pdo->prepare($query);
 
         $stmt->bindParam(':companyName', $companyName);
         $stmt->bindParam(':companyWebsite', $companyWebsite);
         $stmt->bindParam(':status', $status);
+        $stmt->bindParam(':memo', $memo);
         $stmt->bindParam(':id', $id);
 
         if ($stmt->execute()) {

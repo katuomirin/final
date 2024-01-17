@@ -84,14 +84,16 @@
         $companyName = $_POST['name'];
         $companyWebsite = $_POST['home'];
         $status = $_POST['situ'];
+        $memo = $_POST['memo'];
 
         $tableName = 'Job hunting';
-        $query = "INSERT INTO `$tableName` (`name`, `home`, `situ`) VALUES (:companyName, :companyWebsite, :status)";
+        $query = "INSERT INTO `$tableName` (`name`, `home`, `situ`,`memo`) VALUES (:companyName, :companyWebsite, :status,:memo)";
         $stmt = $pdo->prepare($query);
 
         $stmt->bindParam(':companyName', $companyName);
         $stmt->bindParam(':companyWebsite', $companyWebsite);
         $stmt->bindParam(':status', $status);
+        $stmt->bindParam(':memo', $memo);
 
         if ($stmt->execute()) {
             echo "<p>データが正常に追加されました!</p>";
