@@ -22,7 +22,7 @@
             padding: 30px;
             border-radius: 8px;
             box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
-            width: 400px; /* コンテナの幅を指定 */
+            width: 400px; /
             text-align: center;
         }
 

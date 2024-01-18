@@ -13,7 +13,7 @@ try {
 
 } catch (PDOException $e) {
     echo "Connection failed: " . $e->getMessage();
-    die(); // プログラムを停止
+    die(); 
 }
 ?>
 
