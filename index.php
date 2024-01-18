@@ -29,7 +29,8 @@
         }
 
         th {
-            background-color: #f2f2f2;
+            background-color: #008080;
+            color: #ffffff;
         }
 
         td {
@@ -41,7 +42,7 @@
         }
 
         input[type="submit"] {
-            background-color: #4CAF50;
+            background-color: #008080;
             color: white;
             padding: 5px 10px;
             border: none;
@@ -50,11 +51,11 @@
         }
 
         input[type="submit"]:hover {
-            background-color: #45a049;
+            background-color: #006666;
         }
 
         #add-button {
-            background-color: #008CBA;
+            background-color: #008080;
             color: white;
             padding: 10px;
             border: none;
@@ -66,7 +67,7 @@
         }
 
         #add-button:hover {
-            background-color: #0077A3;
+            background-color: #006666;
         }
 
         .company-link {
@@ -103,7 +104,7 @@
         }
 
         #search-button {
-            background-color: #008CBA;
+            background-color: #008080;
             color: white;
             padding: 8px 10px;
             border: none;
@@ -112,7 +113,7 @@
         }
 
         #search-button:hover {
-            background-color: #0077A3;
+            background-color: #006666;
         }
     </style>
 </head>
@@ -157,7 +158,7 @@ try {
         foreach ($result as $row) {
             echo "<tr>";
             foreach ($row as $key => $value) {
-                if ($key === '企業ホームページ') {
+                if ($key === 'home') {
                     echo "<td><a class='company-link' href='$value' target='_blank'>$value</a></td>";
                 } else {
                     echo "<td>$value</td>";

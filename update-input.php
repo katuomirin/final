@@ -81,10 +81,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $stmt->execute();
     $data = $stmt->fetch(PDO::FETCH_ASSOC);
 
-    $companyName = $data['企業名'] ?? '';
-    $companyWebsite = $data['企業ホームページ'] ?? '';
-    $status = $data['状況'] ?? '';
-    $memo = $data['メモ'] ?? '';
+    $companyName = $data['name'] ?? '';
+    $companyWebsite = $data['home'] ?? '';
+    $status = $data['situ'] ?? '';
+    $memo = $data['memo'] ?? '';
 }
 ?>
 
